@@ -1,0 +1,11 @@
+services:
+    namecheap.service_factory:
+        class: Freeday\NamecheapBundle\Factory\NamecheapServiceFactory
+
+    namecheap.service:
+        class: Freeday\NamecheapBundle\Services\NamecheapService
+        factory: ['@namecheap.service_factory', createNamecheapService]
+        arguments:
+            - "%namecheap.api_user%"
+            - "%namecheap.api_key%"
+            - %namecheap.sandbox_mode%
